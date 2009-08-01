@@ -2,7 +2,7 @@ local bugs, recorded = {}, {}
 
 seterrorhandler(function(error)
 	if(not recorded[error]) then
-		table.insert(bugs, format('%s\n\n%s', error, debugstack():match('.-\n(.*)'):gsub('\n$', '')))
+		table.insert(bugs, error)
 
 		print('|cffff8080Console:|r |cff00ff00['..#bugs..']|r', error)
 		recorded[error] = true
