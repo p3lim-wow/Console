@@ -3,8 +3,8 @@ local bugs, recorded = {}, {}
 seterrorhandler(function(error)
 	if(not recorded[error]) then
 		table.insert(bugs, error)
-
 		print('|cffff8080Console:|r |cff00ff00['..#bugs..']|r', error)
+
 		recorded[error] = true
 	end
 end)
@@ -32,8 +32,8 @@ end
 
 StaticPopupDialogs.Console= {
 	text = 'Press CTRL + C to copy the error below',
-	timeout = 0,
-	hasEditBox = 1,
 	EditBoxOnEscapePressed = function(self) self:GetParent():Hide() end,
-	EditBoxOnEnterPressed = function(self) self:GetParent():Hide() end
+	EditBoxOnEnterPressed = function(self) self:GetParent():Hide() end,
+	hasEditBox = 1,
+	timeout = 0
 }
