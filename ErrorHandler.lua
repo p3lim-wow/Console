@@ -11,7 +11,7 @@ end)
 
 local function pop(text)
 	local dialog = StaticPopup_Show('Console')
-	if(dialog)
+	if(dialog) then
 		dialog.editBox:SetText(text)
 		dialog.editBox:SetFocus()
 		dialog.editBox:HighlightText()
