@@ -30,10 +30,11 @@ SlashCmdList.Console = function(str)
 	end
 end
 
-StaticPopupDialogs.Console= {
+StaticPopupDialogs.Console = {
 	text = 'Press CTRL + C to copy the error below',
 	EditBoxOnEscapePressed = function(self) self:GetParent():Hide() end,
 	EditBoxOnEnterPressed = function(self) self:GetParent():Hide() end,
 	hasEditBox = 1,
+	whileDead = 1,
 	timeout = 0
 }
