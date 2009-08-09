@@ -11,9 +11,13 @@ end)
 
 local function pop(text)
 	local dialog = StaticPopup_Show('Console')
-	dialog.editBox:SetText(text)
-	dialog.editBox:SetFocus()
-	dialog.editBox:HighlightText()
+	if(dialog)
+		dialog.editBox:SetText(text)
+		dialog.editBox:SetFocus()
+		dialog.editBox:HighlightText()
+	else
+		print('|cffff8080Console:|r Popup can\'t be shown!')
+	end
 end
 
 SLASH_ReloadUI1 = '/rl'
