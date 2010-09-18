@@ -1,22 +1,21 @@
-local bugs, recorded = {}, {}
+local BUGS, SEEN = {}, {}
+local FORMAT = 'Error:\n%s\n\nStack:\n%s\n\nLocals:\n%s'
 
 seterrorhandler(function(error)
-	if(not recorded[error]) then
-		table.insert(bugs, format('%s\n\n%s', error, debugstack():match('.-\n(.*)'):gsub('\n$', '')))
-		print('|cffff8080Console:|r |cff00ff00['..#bugs..']|r', error)
+	if(not SEEN[error]) then
+		table.insert(BUGS, string.format(FORMAT, error, debugstack(4), debuglocals(4)))
 
-		recorded[error] = true
+		print('|cffff8080Console:|r |cff00ff00['..#BUGS..']|r', error)
+		SEEN[error] = true
 	end
 end)
 
-local function pop(text)
+local function Popup(text)
 	local dialog = StaticPopup_Show('Console')
 	if(dialog) then
 		dialog.editBox:SetText(text)
 		dialog.editBox:SetFocus()
 		dialog.editBox:HighlightText()
-	else
-		print('|cffff8080Console:|r Popup can\'t be shown!')
 	end
 end
 
@@ -25,17 +24,17 @@ SlashCmdList.ReloadUI = ReloadUI
 
 SLASH_Console1 = '/bugs'
 SlashCmdList.Console = function(str)
-	if(bugs[tonumber(str)]) then
-		pop(bugs[tonumber(str)])
-	elseif(#bugs ~= 0) then
-		pop(bugs[#bugs])
+	if(BUGS[tonumber(str)]) then
+		Popup(BUGS[tonumber(str)])
+	elseif(#BUGS ~= 0) then
+		Popup(BUGS[#BUGS])
 	else
-		print('|cffff8080Console:|r Yatta, no errors!')
+		print('|cffff8080Console:|r Na na na na na na BATMAN!')
 	end
 end
 
 StaticPopupDialogs.Console = {
-	text = 'Press CTRL + C to copy the error below',
+	text = 'Copy to Clipboard',
 	EditBoxOnEscapePressed = function(self) self:GetParent():Hide() end,
 	EditBoxOnEnterPressed = function(self) self:GetParent():Hide() end,
 	hasEditBox = 1,
