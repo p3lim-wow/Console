@@ -1,3 +1,7 @@
+
+BINDING_NAME_CONSOLE = 'Reload UI'
+BINDING_HEADER_CONSOLE = 'Console'
+
 local BUGS, SEEN = {}, {}
 local FORMAT = 'Error:\n%s\n\nStack:\n%s\n\nLocals:\n%s'
 
