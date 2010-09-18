@@ -1,5 +1,6 @@
-## Interface: 30300
+## Interface: 40000
 ## Author: p3lim
+## Version: Alpha
 ## Title: !Console
 ## Notes: Error handler and tools
 
