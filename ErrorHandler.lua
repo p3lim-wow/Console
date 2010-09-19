@@ -1,9 +1,8 @@
+local BUGS, SEEN = {}, {}
+local FORMAT = '|cffff8080Error:|r\n%s\n\n|cffff8080Stack:|r\n%s\n|cffff8080Locals:|r\n%s'
 
 BINDING_NAME_CONSOLE = 'Reload UI'
 BINDING_HEADER_CONSOLE = 'Console'
-
-local BUGS, SEEN = {}, {}
-local FORMAT = 'Error:\n%s\n\nStack:\n%s\n\nLocals:\n%s'
 
 seterrorhandler(function(error)
 	if(not SEEN[error]) then
