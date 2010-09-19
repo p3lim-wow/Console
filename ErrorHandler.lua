@@ -23,3 +23,10 @@ SlashCmdList.Console = function(str)
 		print('|cffff8080Console:|r Na na na na na na BATMAN!')
 	end
 end
+
+-- It's your fault cogwheel!
+SlashCmdList.SCRIPT = RunScript
+SlashCmdList.DUMP = function(...)
+	UIParentLoadAddOn('Blizzard_DebugTools')
+	DevTools_DumpCommand(...)
+end
