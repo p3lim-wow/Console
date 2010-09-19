@@ -23,9 +23,6 @@ local function Popup(text)
 	end
 end
 
-SLASH_ReloadUI1 = '/rl'
-SlashCmdList.ReloadUI = ReloadUI
-
 SLASH_Console1 = '/bugs'
 SlashCmdList.Console = function(str)
 	if(BUGS[tonumber(str)]) then
