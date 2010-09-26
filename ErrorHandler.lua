@@ -33,3 +33,23 @@ SlashCmdList.Console = function(str)
 		print('|cffff8080Console:|r Na na na na na na BATMAN!')
 	end
 end
+
+--[[ Dump ]]
+local addon = CreateFrame('Frame')
+addon:RegisterEvent('ADDON_LOADED')
+addon:SetScript('OnEvent', function(self, event, name)
+	if(name == 'Blizzard_DebugTools') then
+		local function Override_Write(self, msg)
+			self.buffer = self.buffer .. msg .. '\n'
+			_G.ConsoleScrollBox:SetText(self.buffer)
+		end
+
+		local orig = DevTools_RunDump
+		function DevTools_RunDump(value, context)
+			context.buffer = ''
+			context.Write = Override_Write
+
+			orig(value, context)
+		end
+	end
+end)
