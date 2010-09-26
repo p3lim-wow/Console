@@ -1,5 +1,5 @@
 <Ui xmlns='http://www.blizzard.com/wow/ui'>
-	<Script file='ErrorHandler.lua'/>
+	<Script file='!Console.lua'/>
 	<Frame name='Console' parent='UIParent' enableMouse='true' movable='true' clampedToScreen='true' hidden='true' dontSavePosition='true'>
 		<Size x='300' y='300'/>
 		<Anchors>

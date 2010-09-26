@@ -2,6 +2,6 @@
 ## Author: p3lim
 ## Version: Alpha
 ## Title: !Console
-## Notes: Error handler and tools
+## Notes: ErrorHandler and tools
 
-ErrorHandler.xml
+!Console.xml
