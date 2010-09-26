@@ -1,8 +1,17 @@
-local BUGS, SEEN = {}, {}
-local FORMAT = '|cffff8080Error:|r\n%s\n\n|cffff8080Stack:|r\n%s\n|cffff8080Locals:|r\n%s'
 
 BINDING_NAME_CONSOLE = 'Reload UI'
 BINDING_HEADER_CONSOLE = 'Console'
+
+-- It's your fault cogwheel!
+SlashCmdList.SCRIPT = RunScript
+SlashCmdList.DUMP = function(...)
+	UIParentLoadAddOn('Blizzard_DebugTools')
+	DevTools_DumpCommand(...)
+end
+
+--[[ ErrorHandler ]]
+local BUGS, SEEN = {}, {}
+local FORMAT = '|cffff8080Error:|r\n%s\n\n|cffff8080Stack:|r\n%s\n|cffff8080Locals:|r\n%s'
 
 seterrorhandler(function(error)
 	if(not SEEN[error]) then
@@ -15,18 +24,12 @@ end)
 
 SLASH_Console1 = '/bugs'
 SlashCmdList.Console = function(str)
+	local box = _G['ConsoleScrollBox']
 	if(BUGS[tonumber(str)]) then
-		_G['ConsoleScrollBox']:SetText(BUGS[tonumber(str)])
+		box:SetText(BUGS[tonumber(str)])
 	elseif(#BUGS ~= 0) then
-		_G['ConsoleScrollBox']:SetText(BUGS[#BUGS])
+		box:SetText(BUGS[#BUGS])
 	else
 		print('|cffff8080Console:|r Na na na na na na BATMAN!')
 	end
-end
-
--- It's your fault cogwheel!
-SlashCmdList.SCRIPT = RunScript
-SlashCmdList.DUMP = function(...)
-	UIParentLoadAddOn('Blizzard_DebugTools')
-	DevTools_DumpCommand(...)
 end
