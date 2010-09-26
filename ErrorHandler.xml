@@ -117,7 +117,6 @@
 						<Size x='276' y='400'/>
 						<Scripts>
 							<OnTextSet>
-								self:HighlightText()
 								Console:Show()
 							</OnTextSet>
 							<OnEscapePressed>
