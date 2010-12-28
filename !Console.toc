@@ -4,4 +4,4 @@
 ## Title: !Console
 ## Notes: ErrorHandler and tools
 
-!Console.xml
+!Console.lua
