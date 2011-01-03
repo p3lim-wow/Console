@@ -1,7 +1,3 @@
-
-BINDING_NAME_CONSOLE = 'Reload UI'
-BINDING_HEADER_CONSOLE = 'Console'
-
 do
 	local frame = CreateFrame('Frame', 'Console', UIParent)
 	frame:EnableMouse(true)

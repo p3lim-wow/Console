@@ -1,5 +1,0 @@
-<Bindings>
-	<Binding name='CONSOLE' header='CONSOLE'>
-		ReloadUI()
-	</Binding>
-</Bindings>
