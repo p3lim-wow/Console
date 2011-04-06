@@ -69,8 +69,8 @@ do
 
 	seterrorhandler(function(error)
 		if(not SEEN[error]) then
-			-- XXX: Get a proper depth value
-			table.insert(BUGS, string.format(FORMAT, error, debugstack(4), debuglocals(4)))
+			-- XXX: Get a proper depth value. DevTools is using 4 as a default value, so I'll use that for now
+			table.insert(BUGS, string.format(FORMAT, error, debugstack(DEBUGLOCALS_LEVEL), debuglocals(DEBUGLOCALS_LEVEL)))
 
 			print('|cffff8080Console:|r |cff00ff00['..#BUGS..']|r', error)
 			SEEN[error] = true
